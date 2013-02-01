@@ -1,0 +1,1 @@
+This is an application that allows people to upload and share funny #Fail pictures and videos that they find on the internet to share with their friends and family for their enjoyment!
