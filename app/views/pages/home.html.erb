@@ -1,8 +1,11 @@
+<% if user_signed_in? %>
+<h1>You are logged in!</h1>
+<% else %>
 <div class="hero-unit">
 <h1>Welcome to #Failboard</h1>
 <p>You're at the homepage for #Failboard. Learn More:<br />
 <%= link_to "About", '/about' %>
 </p>
-<p><%= link_to 'Sign Up Now!', '#', :class => 'btn btn-primary' %></p>
+<p><%= link_to 'Sign Up Now!', new_user_registration_path, :class => 'btn btn-primary' %></p>
 </div>
-
+<% end %>
