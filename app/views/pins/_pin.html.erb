@@ -1,8 +1,9 @@
     <tr>
+      <td><%= image_tag pin.image(:medium) %></td>    	
       <td><%= pin.description %></td>
       <% if current_user == pin.user  %>
-      <td><%= link_to 'Show', pin %></td>
-      <td><%= link_to 'Edit', edit_pin_path(pin) %></td>
-      <td><%= link_to 'Destroy', pin, confirm: 'Are you sure?', method: :delete %></td>
+	      <td><%= link_to 'Show', pin %></td>
+	      <td><%= link_to 'Edit', edit_pin_path(pin) %></td>
+	      <td><%= link_to 'Destroy', pin, confirm: 'Are you sure?', method: :delete %></td>
       <% end %>
     </tr>
