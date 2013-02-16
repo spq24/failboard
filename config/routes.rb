@@ -3,7 +3,7 @@ Failboard::Application.routes.draw do
 
   devise_for :users
 
-  root :to => 'pages#home'
+  root :to => 'pins#index'
 
   match '/about',  to: 'pages#about'
   match '/fails',   to: 'pins#index'
