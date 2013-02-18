@@ -5,7 +5,3 @@
 jQuery -> 
 	$('#pins').imagesLoaded ->
 		$('#pins').masonry itemSelector: ".box"
-
-	$('#fileupload').fileupload({
-    dropZone: $('#dropzone')
-    });
