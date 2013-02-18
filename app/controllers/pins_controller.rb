@@ -46,7 +46,11 @@ class PinsController < ApplicationController
 
     respond_to do |format|
       if @pin.save
-        format.html { redirect_to @pin, notice: 'Pin was successfully created.' }
+        format.html { 
+          render :json => [@upload.to_jq_upload].to_json,
+          :content_type => 'text/html',
+          :layout => false
+        }
         format.json { render json: @pin, status: :created, location: @pin }
       else
         format.html { render action: "new" }
