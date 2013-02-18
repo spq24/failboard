@@ -8,7 +8,7 @@ class PinsController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @pins }
+      format.json { render json: @pin.map{|pin| pin.to_jq_upload } }
     end
   end
 
@@ -30,7 +30,7 @@ class PinsController < ApplicationController
 
     respond_to do |format|
       format.html # new.html.erb
-      format.json { render json: @pin }
+      format.json { render json: @pin.map{|pin| pin.to_jq_upload } }
     end
   end
 
@@ -47,11 +47,11 @@ class PinsController < ApplicationController
     respond_to do |format|
       if @pin.save
         format.html { 
-          render :json => [@upload.to_jq_upload].to_json,
+          render :json => [@pin.to_jq_upload].to_json,
           :content_type => 'text/html',
           :layout => false
         }
-        format.json { render json: @pin, status: :created, location: @pin }
+        format.json { render json: [@pin.to_jq_upload].to_json, status: :created, location: @pin }
       else
         format.html { render action: "new" }
         format.json { render json: @pin.errors, status: :unprocessable_entity }
