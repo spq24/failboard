@@ -26,11 +26,11 @@ class PinsController < ApplicationController
   # GET /pins/new
   # GET /pins/new.json
   def new
-    @pin = current_user.pins.new
+    @pin = Pin.new
 
     respond_to do |format|
       format.html # new.html.erb
-      format.json { render json: @pin.map{|pin| pin.to_jq_upload } }
+      format.json { render json: @pin  }
     end
   end
 
@@ -42,7 +42,7 @@ class PinsController < ApplicationController
   # POST /pins
   # POST /pins.json
   def create
-    @pin = current_user.pins.new(params[:pin])
+    @pin = Pin.build(params[:pin])
 
     respond_to do |format|
       if @pin.save
