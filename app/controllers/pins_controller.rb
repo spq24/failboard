@@ -8,7 +8,7 @@ class PinsController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @pin.map{|pin| pin.to_jq_upload } }
+      format.json { render json: @pins.map{|pin| pin.to_jq_upload } }
     end
   end
 
