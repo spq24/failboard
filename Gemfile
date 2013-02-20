@@ -8,6 +8,7 @@ gem 'paperclip', "~>3.0"
 gem 'jbuilder'
 gem 'jquery-fileupload-rails'
 gem 'bootstrap-sass'
+gem 'aws-sdk'
 
 group :production do
 	gem 'pg'

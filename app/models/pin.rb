@@ -9,7 +9,7 @@ class Pin < ActiveRecord::Base
 								 size: { less_than: 5.megabytes }
 
 	belongs_to :user
-	has_attached_file :image
+	has_attached_file :image, styles: { medium: "320x240>"}
 
   def to_jq_upload
     {
