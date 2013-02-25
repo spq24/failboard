@@ -4,17 +4,17 @@ class PinsController < ApplicationController
   # GET /pins
   # GET /pins.json
   def index
-    @pins = Pin.order("created_at desc")
+    @pins = Pin.order("created_at desc").page(params[:pin]).per_page(2)
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @pins.map{|pin| pin.to_jq_upload } }
+      format.json { render json: @pins }
     end
   end
 
   # GET /pins/1
   # GET /pins/1.json
-  def show
+  def show 
     @pin = Pin.find(params[:id])
 
     respond_to do |format|
@@ -30,7 +30,7 @@ class PinsController < ApplicationController
 
     respond_to do |format|
       format.html # new.html.erb
-      format.json { render json: @pin  }
+      format.json { render json: @pin }
     end
   end
 
@@ -46,12 +46,8 @@ class PinsController < ApplicationController
 
     respond_to do |format|
       if @pin.save
-        format.html { 
-          render :json => [@pin.to_jq_upload].to_json,
-          :content_type => 'text/html',
-          :layout => false
-        }
-        format.json { render json: [@pin.to_jq_upload].to_json, status: :created, location: @pin }
+        format.html { redirect_to  @pin,  notice: 'Pin was successfully created.' }
+        format.json { render json: @pin, status: :created, location: @pin }
       else
         format.html { render action: "new" }
         format.json { render json: @pin.errors, status: :unprocessable_entity }

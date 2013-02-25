@@ -1,24 +1,15 @@
 class Pin < ActiveRecord::Base
-	attr_accessible :description, :image
+	attr_accessible :description, :image, :image_url
+  belongs_to :user
+  mount_uploader :image, ImageUploader
 
-
-	validates            :description, presence: true, length: { :maximum => 140 }
+	validates            :description, length: { :maximum => 300 }
 	validates            :user_id, presence: true
-	validates_attachment :image, presence: true,
-								       content_type: { content_type: ['image/jpeg', 'image/jpg', 'image/png', 'image/gif'] },
-								       size: { less_than: 5.megabytes }
+	validates            :image, presence: true
 
-	belongs_to :user
-	has_attached_file :image, styles: { medium: "320x240>"}
-
-  def to_jq_upload
-    {
-      "name" => read_attribute(:image_file_name),
-      "size" => read_attribute(:image_file_size),
-      "url" => upload.url(:original),
-      "delete_url" => image_path(self),
-      "delete_type" => "DELETE" 
-    }
+	
+  def default_name
+    self.name ||= File.basename(image.filename, '.*').titleize if image
   end
 
 

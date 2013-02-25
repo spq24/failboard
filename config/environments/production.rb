@@ -67,13 +67,4 @@ Failboard::Application.configure do
 
   #Domain name for Devise
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
-
-  config.paperclip_defaults = {
-  :storage => :s3,
-  :s3_credentials => {
-    :bucket => ENV['AWS_BUCKET'],
-    :access_key_id => ENV['AKIAIILBLZ2OJVD56EIQ'],
-    :secret_access_key => ENV['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']
-  }
-}
 end

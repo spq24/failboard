@@ -4,11 +4,14 @@ gem 'rails', '3.2.1'
 gem 'jquery-rails'
 gem 'devise'
 gem 'simple_form'
-gem 'paperclip', "~>3.0"
 gem 'jbuilder'
 gem 'jquery-fileupload-rails'
 gem 'bootstrap-sass'
 gem 'aws-sdk'
+gem 'jquery-ui-rails'
+gem 'carrierwave'
+gem 'fog', '~> 1.3.1'
+gem 'will_paginate'
 
 group :production do
 	gem 'pg'
@@ -16,6 +19,7 @@ end
 
 group :development do
 	gem 'sqlite3'
+	gem 'debugger'
 end
 
 group :assets do
