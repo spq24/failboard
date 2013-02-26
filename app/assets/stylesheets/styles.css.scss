@@ -10,11 +10,16 @@ body {
 
 .footer {
  
- 	margin-top: 50px;
  	color: $grayLight;
  	a { 
  		color:$gray;
  	}
+  position: relative;
+  margin-top: -50px; /* negative value of footer height */
+  height: 150px;
+  clear:both;
+  padding-top:20px;
+  color:#fff;
 	
 }
 
@@ -122,3 +127,7 @@ $grayMediumLight: #eaeaea;
   @include box_sizing;
 }
 
+
+.modal {
+    color: #333;
+}
