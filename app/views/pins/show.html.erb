@@ -69,7 +69,7 @@
 
 	</div>
 	<br /><br />
-	<center><div class="fb-comments" data-href="http://infinite-bastion-8143.herokuapp.com" data-width="470" data-num-posts="10"></div></center>
+	<center><div class="fb-comments" data-href="#{request.protocol}#{request.host_with_port}#{request.fullpath}" data-width="470" data-num-posts="10"></div></center>
 	<div id="fb-root"></div>
 	<script>(function(d, s, id) {
 	  var js, fjs = d.getElementsByTagName(s)[0];
