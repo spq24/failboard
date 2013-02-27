@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130227065903) do
+ActiveRecord::Schema.define(:version => 20130227082611) do
 
   create_table "fails", :force => true do |t|
     t.string   "description"
@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(:version => 20130227065903) do
     t.integer  "votes"
     t.integer  "up_votes",    :default => 0, :null => false
     t.integer  "down_votes",  :default => 0, :null => false
+    t.string   "fail_title"
   end
 
   add_index "fails", ["user_id"], :name => "index_pins_on_user_id"

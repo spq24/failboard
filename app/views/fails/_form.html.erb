@@ -1,13 +1,21 @@
-<%= simple_form_for(@fail, html: {class: "form-horizontal"}) do |f| %>
+
+<div class="formfail">
+<center>	
+<%= simple_form_for(@fail) do |f| %>
   <%= f.error_notification %>
   <%= f.full_error :image_file_size, class: "alert alert-error" %>
   <%= f.full_error :image_content_type, class: "alert alert-error" %>
 
-  <%= f.input :image_url, label: "Link to an image" %>
-  <%= f.input :image, label: "Upload an image" %>
+  <center><%= f.input :fail_title, label: "Title of the #Fail" %></center>
+  <%= f.input :image_url, label: "Link to an image" %><br />
+  <p>OR...</p>
+  <%= f.input :image, label: "Upload an image" %><br />
+
   <%= f.input :description, as: :text, input_html: { rows: "3"} %>
 
   <div class="form-actions">
     <%= f.button :submit, class: "btn btn-primary" %>
   </div>
 <% end %>
+</center>
+</div>

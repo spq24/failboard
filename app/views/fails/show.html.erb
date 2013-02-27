@@ -35,6 +35,7 @@
 		<div class="well">
 			<p>
 				<center>
+				  <strong><u><p style="font-size: 32px;"><%= @fail.fail_title %></p><u><strong><br />
 				  <%= image_tag @fail.image %><br />
 				  <%= @fail.description %>
 
@@ -46,7 +47,6 @@
 						<%= link_to 'Delete This Fail', @fail, method: :delete, data: { confirm: 'Are you sure?' } %>
 						<br /><br />
 					<% end %>
-					
 						<% if current_user.voted?(@fail) == false %>
 						<div class="pull-right"><%= link_to "LOL", up_vote_fail_url(@fail), :method => :post, class: "btn btn-small btn-primary" %></div>
 						<% else %>
@@ -83,7 +83,7 @@
 	  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=534777629886814";
 	  fjs.parentNode.insertBefore(js, fjs);
 	}(document, 'script', 'facebook-jssdk'));
-	</script>
+	</script>	
 </div>
 
 
