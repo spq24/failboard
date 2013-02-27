@@ -1,5 +1,9 @@
 Failboard::Application.routes.draw do
-  resources :pins
+  resources :pins do
+      member do
+        post :up_vote
+      end
+  end
 
   devise_for :users
 

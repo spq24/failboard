@@ -1,5 +1,5 @@
 <div class="box">
-	<%= link_to (image_tag pin.image), "#pin-modal", :data => { :toggle=>"modal" } %>
+	<%= link_to (image_tag pin.image), pin %>
      <p class="description">
       	<%= pin.description %>
  	 </p>
@@ -9,24 +9,4 @@
  	 		Posted by <%= pin.user.name %>
  	 	</strong>
 	 </p>
-</div>
-
-
-<div id="pin-modal" class="modal hide fade">
-  <div class="modal-header">
-    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-  </div>
-  <div class="modal-body">
-    <%= link_to (image_tag pin.image), pin %>
-     <p class="description">
-      	<%= pin.description %>
- 	 </p>
-  </div>
-  <div class="modal-footer">
- 	 <p>
- 	 	<strong>
- 	 		Posted by <%= pin.user.name %>
- 	 	</strong>
-	 </p>
-  </div>
 </div>

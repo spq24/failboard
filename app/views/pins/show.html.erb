@@ -5,16 +5,39 @@
 				<center>
 				  <%= image_tag @pin.image %><br />
 				  <%= @pin.description %>
+
 			  	</center>
 			</p>
 			<center>
 					<% if current_user == @pin.user %>
-						<%= link_to 'Edit', edit_pin_path(@pin) %> |
-						<%= link_to 'Destroy', @pin, method: :delete, data: { confirm: 'Are you sure?' } %> |
+						<%= link_to 'Edit This Fail', edit_pin_path(@pin) %> |
+						<%= link_to 'Delete This Fail', @pin, method: :delete, data: { confirm: 'Are you sure?' } %>
 					<% end %>
-				<%= link_to 'Back', pins_path %>
+					
+						<% if current_user.voted?(@pin) == false %>
+						<div class="pull-right"><%= link_to "LOL", up_vote_pin_url(@pin), :method => :post, class: "btn btn-small btn-primary" %></div>
+						<% else %>
+						<p>You've already LOL'd at this...don't want you ROFL at work!</p>
+						<% end %>
+
+						<% if @pin.up_votes > 0 %>
+							<center>
+								<% if @pin.up_votes == 1 %>
+									<p><%= @pin.up_votes %> Person has LOL'd at this #FAIL!</p>
+									<% else %>
+									<p><%= @pin.up_votes %> People have LOL'd at this #FAIL!</p>
+								<% end %>
+							</center>
+						<% else %>
+							<center>
+								<p>Be first to LOL at this!</p>
+							</center>
+						<% end %>
+					</div>
+				<center><%= link_to 'Go back to the #Failboard', pins_path, class: "btn btn-small btn-success" %></center>
 			</center>
 		</div>
+
 	</div>
 </div>
 

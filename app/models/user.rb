@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-
+	make_voter
 
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,

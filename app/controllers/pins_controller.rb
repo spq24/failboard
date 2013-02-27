@@ -16,7 +16,6 @@ class PinsController < ApplicationController
   # GET /pins/1.json
   def show 
     @pin = Pin.find(params[:id])
-
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @pin }
@@ -82,4 +81,11 @@ class PinsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def up_vote
+    @pin = Pin.find params[:id]
+    current_user.up_vote(@pin)
+    redirect_to pin_path(@pin)
+  end
+
 end

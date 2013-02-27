@@ -12,6 +12,8 @@ gem 'jquery-ui-rails'
 gem 'carrierwave'
 gem 'fog', '~> 1.3.1'
 gem 'will_paginate'
+gem 'acts_as_votable', '~> 0.5.0'
+gem 'make_voteable'
 
 group :production do
 	gem 'pg'

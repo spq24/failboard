@@ -1,5 +1,7 @@
 class Pin < ActiveRecord::Base
-	attr_accessible :description, :image, :image_url
+  attr_accessible :description, :image, :image_url
+  make_voteable
+
   belongs_to :user
   mount_uploader :image, ImageUploader
 
