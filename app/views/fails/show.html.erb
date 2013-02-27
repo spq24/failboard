@@ -28,33 +28,37 @@
 </script>
 
 <div class="row">
+	<div class="pull-right">
+		<%= render 'shared/addfail' %><br /><br /><br />
+	</div>
 	<div class="span6 offset3">
 		<div class="well">
 			<p>
 				<center>
-				  <%= image_tag @pin.image %><br />
-				  <%= @pin.description %>
+				  <%= image_tag @fail.image %><br />
+				  <%= @fail.description %>
 
 			  	</center>
 			</p>
 			<center>
-					<% if current_user == @pin.user %>
-						<%= link_to 'Edit This Fail', edit_pin_path(@pin) %> |
-						<%= link_to 'Delete This Fail', @pin, method: :delete, data: { confirm: 'Are you sure?' } %>
+					<% if current_user == @fail.user %>
+						<%= link_to 'Edit This Fail', edit_fail_path(@fail) %> |
+						<%= link_to 'Delete This Fail', @fail, method: :delete, data: { confirm: 'Are you sure?' } %>
+						<br /><br />
 					<% end %>
 					
-						<% if current_user.voted?(@pin) == false %>
-						<div class="pull-right"><%= link_to "LOL", up_vote_pin_url(@pin), :method => :post, class: "btn btn-small btn-primary" %></div>
+						<% if current_user.voted?(@fail) == false %>
+						<div class="pull-right"><%= link_to "LOL", up_vote_fail_url(@fail), :method => :post, class: "btn btn-small btn-primary" %></div>
 						<% else %>
 						<p>You've already LOL'd at this...don't want you ROFL at work!</p>
 						<% end %>
 
-						<% if @pin.up_votes > 0 %>
+						<% if @fail.up_votes > 0 %>
 							<center>
-								<% if @pin.up_votes == 1 %>
-									<p><%= @pin.up_votes %> Person has LOL'd at this #FAIL!</p>
+								<% if @fail.up_votes == 1 %>
+									<p><%= @fail.up_votes %> Person has LOL'd at this #FAIL!</p>
 									<% else %>
-									<p><%= @pin.up_votes %> People have LOL'd at this #FAIL!</p>
+									<p><%= @fail.up_votes %> People have LOL'd at this #FAIL!</p>
 								<% end %>
 							</center>
 						<% else %>
@@ -63,7 +67,7 @@
 							</center>
 						<% end %>
 					</div>
-				<center><%= link_to 'Go back to the #Failboard', pins_path, class: "btn btn-small btn-success" %></center>
+				<center><%= link_to 'Go back to the #Failboard', fails_path, class: "btn btn-small btn-success" %></center>
 			</center>
 
 		</div>

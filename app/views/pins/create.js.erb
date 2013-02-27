@@ -1,5 +1,0 @@
-<% if @pin.new_record? %>
-  alert("Failed to upload painting: <%= j @pin.errors.full_messages.join(', ').html_safe %>");
-<% else %>
-  $("#paintings").append("<%= j render(@pin) %>");
-<% end %>

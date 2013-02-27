@@ -3,8 +3,8 @@
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
 jQuery ->
-	$('#pins').imagesLoaded ->
-		$('#pins').masonry({
+	$('#fails').imagesLoaded ->
+		$('#fails').masonry({
 		 itemSelector: ".box",
 		 isAnimated: !Modernizr.csstransitions
 	    });

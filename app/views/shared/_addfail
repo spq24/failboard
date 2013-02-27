@@ -1,0 +1,1 @@
+<%= link_to "Add Your #Fail", new_fail_path, class: "btn btn-success pull-right" %>

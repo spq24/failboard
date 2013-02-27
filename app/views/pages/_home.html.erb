@@ -1,5 +1,6 @@
 <% if user_signed_in? %>
-<center><h1>The #Failboard</h1></center><br /><br />
+<center><h1>The #Failboard</h1></center>
+<%= render 'shared/addfail' %><br /><br /><br />
 <% else %>
 <div class="hero-unit">
 <h1>Welcome to #Failboard</h1>

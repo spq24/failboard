@@ -1,4 +1,4 @@
-class Pin < ActiveRecord::Base
+class Fail < ActiveRecord::Base
   attr_accessible :description, :image, :image_url
   make_voteable
 

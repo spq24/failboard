@@ -1,5 +1,5 @@
 Failboard::Application.routes.draw do
-  resources :pins do
+  resources :fails do
       member do
         post :up_vote
       end
@@ -7,10 +7,11 @@ Failboard::Application.routes.draw do
 
   devise_for :users
 
-  root :to => 'pins#index'
+  root :to => 'fails#index'
 
-  match '/about',  to: 'pages#about'
-  match '/fails',   to: 'pins#index'
+  match '/about',   to: 'pages#about'
+  match '/fails',   to: 'fails#index'
+  match '/new-fail',  to: 'fails#new'
 
 
   # The priority is based upon order of creation:

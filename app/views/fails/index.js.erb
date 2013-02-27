@@ -1,0 +1,6 @@
+$('#fails').append('<%= j render(@fails %>)');
+<% if @products.next_page %>
+$('.pagination').replaceWith('<%= j will_paginate(@fails) %>');
+<% else %>
+$('.pagination').remove();
+<% end %>
