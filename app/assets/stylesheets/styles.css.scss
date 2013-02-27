@@ -2,7 +2,7 @@
 
 body { 
 	padding-top: 60px;
-  background-image: url(https://s3.amazonaws.com/failboard/white_sand.png);
+  background-image: url(https://s3.amazonaws.com/failboard/corkboard.png);
 }
 
 .formfail {
@@ -48,21 +48,26 @@ body {
 	font-size: 11px;
 	line-height: 1.4em;
 	float: left;
-	-webkit-border-radius: 5px;
-	-moz-border-radius: 5px;
-	border-radius: 5px;
 	box-shadow: 1px 1px 10px #444;
 	width: 214px;
-  background-color:white;
+  background-color:#FCF0AD;
 }
 
 .box img {
 	display: block;
-	width: 100%;
 	-webkit-border-radius: 5px;
 	-moz-border-radius: 5px;
 	border-radius: 5px;
+
+
 }
+
+.box img#tack {
+  display: block;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  }
 
 .masonry,
 .masonry .masonry-brick {

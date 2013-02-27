@@ -49,8 +49,6 @@
 					<% end %>
 						<% if current_user.voted?(@fail) == false %>
 						<div class="pull-right"><%= link_to "LOL", up_vote_fail_url(@fail), :method => :post, class: "btn btn-small btn-primary" %></div>
-						<% else %>
-						<p>You've already LOL'd at this...don't want you ROFL at work!</p>
 						<% end %>
 
 						<% if @fail.up_votes > 0 %>
