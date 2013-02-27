@@ -65,11 +65,12 @@
 					</div>
 				<center><%= link_to 'Go back to the #Failboard', pins_path, class: "btn btn-small btn-success" %></center>
 			</center>
+
 		</div>
 
 	</div>
 	<br /><br />
-	<center><div class="fb-comments" data-href="#{request.protocol}#{request.host_with_port}#{request.fullpath}" data-width="470" data-num-posts="10"></div></center>
+	<center><%= content_tag(:div, nil, :class => 'fb-comments', "data-href" => "#{request.protocol}#{request.host_with_port}#{request.fullpath}", "data-width" => '470', "data-num-posts" => "10"  ) %></center>
 	<div id="fb-root"></div>
 	<script>(function(d, s, id) {
 	  var js, fjs = d.getElementsByTagName(s)[0];
