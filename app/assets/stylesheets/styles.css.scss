@@ -69,6 +69,33 @@ body {
   border-radius: 5px;
   }
 
+.boxtwo {
+  margin: 5px;
+  padding: 5px;
+  font-size: 11px;
+  line-height: 1.4em;
+  float: left;
+  box-shadow: 1px 1px 10px #444;
+  width: 700px;
+  background-color:#FCF0AD;
+}
+
+.boxtwo img {
+  display: block;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+
+
+}
+
+.boxtwo img#tack {
+  display: block;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  }
+
 .masonry,
 .masonry .masonry-brick {
   -webkit-transition-duration: 0.7s;

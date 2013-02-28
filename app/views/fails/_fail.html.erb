@@ -4,13 +4,27 @@
 
 	<center><strong><p style="font-size: 16px;"><u><%= fail.fail_title %></u></p></strong></center>
 	<center><%= link_to (image_tag fail.image), fail %></center>
-     <p class="description">
+	<hr></hr>
+     <p class="description"style="font-size: 14px;">
       	<%= fail.description %>
  	 </p>
  	 <br />
  	 <p>
  	 	<strong>
- 	 		Posted by <%= fail.user.name %>
- 	 	</strong>
+ 	 		
+ 	 	
 	 </p>
+	<div class="pull-right">
+		<% if fail.up_votes > 0 %>
+				<center>
+					<% if fail.up_votes == 1 %>
+							<p><%= link_to "#{fail.up_votes} LOL", fail %></p>
+						<% else %>
+							<p><%= link_to "#{fail.up_votes} LOLs", fail %></p>
+					<% end %>
+				</center>
+		<% end %>
+	</div>
+	Posted by <%= fail.user.name %>
+	</strong>
 </div>

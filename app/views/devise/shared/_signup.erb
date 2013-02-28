@@ -1,0 +1,6 @@
+<table border="0" bordercolor="" style="background-color:" width="500px" cellpadding="3" cellspacing="3">
+	<tr>
+		<td><%= link_to image_tag("https://s3.amazonaws.com/failboard/fbsignup.png"), user_omniauth_authorize_path(:facebook)%></td>
+		<td><%= link_to 'Sign Up With Your Email', new_user_registration_path, :class => 'btn btn-info pull-right' %></td>
+	</tr>
+</table>

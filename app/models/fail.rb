@@ -5,7 +5,7 @@ class Fail < ActiveRecord::Base
   belongs_to :user
   mount_uploader :image, ImageUploader
 
-	validates            :description, length: { :maximum => 300 }
+	validates            :description, length: { :maximum => 200 }
 	validates            :user_id, presence: true
 	validates            :image, presence: true
   validates            :fail_title, presence: true, length: { :maximum => 50 }

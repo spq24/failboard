@@ -1,13 +1,13 @@
 <% if user_signed_in? %>
-<center><h1>The #Failboard</h1></center>
-<%= render 'shared/addfail' %><br /><br /><br />
+<center><%= image_tag("https://s3.amazonaws.com/failboard/failboard.png") %></center>
+<br /><br /><br />
 <% else %>
 <div class="hero-unit">
-<h1>Welcome to #Failboard</h1>
-<p>You're at the homepage for #Failboard. Learn More:<br />
-<%= link_to "About", '/about' %>
-</p>
-<%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %>
-<p><%= link_to 'Sign Up Now!', new_user_registration_path, :class => 'btn btn-primary' %></p>
+<center><h1>Welcome to #Failboard</h1>
+<p><em>The Place</em> to find and share all the <strong>Funny #Fails</strong> you find from around the internets all in one place!</p>
+</center>
+<br />
+
+<center><%= render '/devise/shared/signup' %></center>
 </div>
 <% end %>
