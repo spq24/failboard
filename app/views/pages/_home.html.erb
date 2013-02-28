@@ -7,6 +7,7 @@
 <p>You're at the homepage for #Failboard. Learn More:<br />
 <%= link_to "About", '/about' %>
 </p>
+<%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %>
 <p><%= link_to 'Sign Up Now!', new_user_registration_path, :class => 'btn btn-primary' %></p>
 </div>
 <% end %>

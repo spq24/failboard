@@ -18,7 +18,9 @@
              <li><%= link_to "Home", root_path %></li>
              <li><%= link_to "About", about_path %></li>
              <li><%= link_to "My #Fails", fails_path %></li>
+             <li></li>
          </ul>
+         <a href="/fails/new"><button class="btn btn-success">Add a #Fail</button></a>
           <ul class="nav pull-right">
             <% if user_signed_in? %> 
               <button class="btn btn-info dropdown-toggle" data-toggle="dropdown"><%= current_user.name %>
@@ -30,7 +32,7 @@
                   <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
                 </ul>
             <% else %>
-              <li><%= button_to "Login", new_user_session_path, class: "btn btn-info btn-primary" %></li>
+              <li><a href="/users/sign_in"><button class="btn btn-info btn-primary">Login</button></a></li>
             <% end %>
          </ul>
       </div>

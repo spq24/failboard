@@ -14,6 +14,8 @@ gem 'fog', '~> 1.3.1'
 gem 'will_paginate'
 gem 'acts_as_votable', '~> 0.5.0'
 gem 'make_voteable'
+gem 'omniauth'
+gem 'omniauth-facebook'
 
 group :production do
 	gem 'pg'
