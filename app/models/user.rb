@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-	attr_accessible :email, :password, :password_confirmation, :remember_me, :name, :provider, :uid
+	attr_accessible :email, :password, :password_confirmation, :remember_me, :name, :provider, :uid, :oauth_token, :oauth_expires_at
 	make_voter
 
   # Include default devise modules. Others available are:
@@ -17,13 +17,13 @@ class User < ActiveRecord::Base
   user = User.where(:provider => auth.provider, :uid => auth.uid).first
   unless user
     user = User.create(name:auth.extra.raw_info.name,
-                         provider:auth.provider,
-                         uid:auth.uid,
-                         email:auth.info.email,
-                         password:Devise.friendly_token[0,20]
-                         )
+                       provider:auth.provider,
+                       uid:auth.uid,
+                       email:auth.info.email,
+                       password:Devise.friendly_token[0,20]
+                       )
   		end
- 	 user
+ 	 user.save
   end
 
    def self.new_with_session(params, session)
@@ -33,5 +33,15 @@ class User < ActiveRecord::Base
       end
     end
   end
-  
+
+  def self.from_omniauth(auth)
+		where(auth.slice(:provider, :uid)).first_or_initialize.tap do |user|
+		user.provider = auth.provider
+		user.uid = auth.uid
+		user.email = auth.info.email
+		user.encrypted_password = Devise.friendly_token[0,20]
+		user.save!
+	end
+  end
+
 end
