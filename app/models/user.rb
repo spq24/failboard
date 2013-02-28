@@ -13,6 +13,19 @@ class User < ActiveRecord::Base
 
   has_many :fails, dependent: :destroy
 
+  def self.from_omniauth(auth)
+		  where(auth.slice(:provider, :uid)).first_or_initialize.tap do |user|
+		    user.provider = auth.provider
+		    user.uid = auth.uid
+		    user.oauth_token = auth.credentials.token
+		    user.oauth_expires_at = Time.at(auth.credentials.expires_at)
+		    user.email = auth.info.email
+		    user.name = auth.extra.raw_info.name
+		    user.save!
+	  end
+  end
+
+
   def self.find_for_facebook_oauth(auth, signed_in_resource=nil)
   user = User.where(:provider => auth.provider, :uid => auth.uid).first
   unless user
@@ -22,8 +35,9 @@ class User < ActiveRecord::Base
                        email:auth.info.email,
                        password:Devise.friendly_token[0,20]
                        )
+    	user.ensure_authentication_token!
   		end
- 	 user.save
+ 	 user
   end
 
    def self.new_with_session(params, session)
@@ -32,17 +46,6 @@ class User < ActiveRecord::Base
         user.email = data["email"] if user.email.blank?
       end
     end
-  end
-
-  def self.from_omniauth(auth)
-		where(auth.slice(:provider, :uid)).first_or_initialize.tap do |user|
-		user.provider = auth.provider
-		user.uid = auth.uid
-		user.email = auth.info.email
-		user.encrypted_password = Devise.friendly_token[0,20]
-		user.name = auth.extra.raw_info.name
-		user.save!
-	end
   end
 
 end
