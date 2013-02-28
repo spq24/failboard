@@ -8,9 +8,9 @@
   <%= f.full_error :image_content_type, class: "alert alert-error" %>
 
   <center><%= f.input :fail_title, label: "Title of the #Fail" %></center>
-  <%= f.input :image_url, label: "Link to an image" %><br />
-  <p>OR...</p>
-  <%= f.input :image, label: "Upload an image" %><br />
+  <%= f.text_field :remote_image_url, label: "Link to a #Fail" %>
+  <strong><p>OR...</p></strong><br />
+  <%= f.input :image, label: "Upload a #Fail" %><br />
 
   <%= f.input :description, as: :text, input_html: { rows: "3"} %>
 

@@ -1,5 +1,5 @@
 class Fail < ActiveRecord::Base
-  attr_accessible :description, :image, :image_url, :fail_title
+  attr_accessible :description, :image, :remote_image_url, :fail_title
   make_voteable
 
   belongs_to :user

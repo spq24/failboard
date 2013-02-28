@@ -11,19 +11,20 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130228063440) do
+ActiveRecord::Schema.define(:version => 20130228091827) do
 
   create_table "fails", :force => true do |t|
     t.string   "description"
-    t.datetime "created_at",                 :null => false
-    t.datetime "updated_at",                 :null => false
+    t.datetime "created_at",                      :null => false
+    t.datetime "updated_at",                      :null => false
     t.integer  "user_id"
     t.string   "image"
     t.string   "image_url"
     t.integer  "votes"
-    t.integer  "up_votes",    :default => 0, :null => false
-    t.integer  "down_votes",  :default => 0, :null => false
+    t.integer  "up_votes",         :default => 0, :null => false
+    t.integer  "down_votes",       :default => 0, :null => false
     t.string   "fail_title"
+    t.string   "remote_image_url"
   end
 
   add_index "fails", ["user_id"], :name => "index_pins_on_user_id"

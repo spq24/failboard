@@ -10,14 +10,14 @@
       </a>
  
       <!-- Be sure to leave the brand out there if you want it shown -->
-      <%= link_to "#Failboard", root_path, :class => 'brand' %>
+      <%= link_to image_tag("https://s3.amazonaws.com/failboard/logofail.png"), root_path, :class => 'brand' %>
  
       <!-- Everything you want hidden at 940px or less, place within here -->
       <div class="nav-collapse collapse">
          <ul class="nav">
              <li><%= link_to "Home", root_path %></li>
              <li><%= link_to "About", about_path %></li>
-             <li><%= link_to "My #Fails", fails_path %></li>
+             <li><%= link_to "#Failboard", fails_path %></li>
              <li></li>
          </ul>
          <ul class="nav">
