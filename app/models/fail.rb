@@ -10,10 +10,5 @@ class Fail < ActiveRecord::Base
 	validates            :image, presence: true
   validates            :fail_title, presence: true, length: { :maximum => 50 }
 
-	
-  def default_name
-    self.name ||= File.basename(image.filename, '.*').titleize if image
-  end
-
 
 end

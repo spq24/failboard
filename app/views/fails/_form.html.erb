@@ -1,14 +1,14 @@
 
 <div class="formfail">
 <center>
- <h1>New #Fail</h1>
+ <h1>New #Fail</h1><br />
 <%= simple_form_for(@fail) do |f| %>
   <%= f.error_notification %>
   <%= f.full_error :image_file_size, class: "alert alert-error" %>
   <%= f.full_error :image_content_type, class: "alert alert-error" %>
 
-  <center><%= f.input :fail_title, label: "Title of the #Fail" %></center>
-  <%= f.text_field :remote_image_url, label: "Link to a #Fail" %>
+  <%= f.input :fail_title, label: "Title of the #Fail" %>
+  <%= f.input :remote_image_url, label: "Link to a #Fail" %>
   <strong><p>OR...</p></strong><br />
   <%= f.input :image, label: "Upload a #Fail" %><br />
 
