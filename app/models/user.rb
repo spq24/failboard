@@ -40,6 +40,7 @@ class User < ActiveRecord::Base
 		user.uid = auth.uid
 		user.email = auth.info.email
 		user.encrypted_password = Devise.friendly_token[0,20]
+		user.name = auth.extra.raw_info.name
 		user.save!
 	end
   end
