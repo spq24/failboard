@@ -4,10 +4,8 @@
 <center><%= image_tag("https://s3.amazonaws.com/failboard/failboard.png") %></center>
 <% end %>
 
-<div id="fails" class="fails">
+<div id="fails">
   <%= render @fails %>
 </div>
 
-<%= nether(@fails.total_pages, fails_path, "#fails") %>
-
-<div class="clear"></div>
+<%= will_paginate @fails %>

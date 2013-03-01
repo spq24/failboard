@@ -4,12 +4,12 @@ class FailsController < ApplicationController
   # GET /fails
   # GET /fails.json
   def index
-    @fails = Fail.order("created_at desc").paginate(page: params[:page], :per_page => 10)
+    @fails = Fail.order("created_at desc").page(params[:page]).per_page(10)
 
-    render_nether("fails/fail")
 
     respond_to do |format|
       format.html # index.html.erb
+      format.js
       format.json { render json: @fails }
     end
   end
@@ -18,7 +18,6 @@ class FailsController < ApplicationController
   # GET /fails/1.json
   def show
     @fail = Fail.find(params[:id])
-    @path = #{request.protocol}#{request.host_with_port}#{request.fullpath}
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @fail }
@@ -48,7 +47,7 @@ class FailsController < ApplicationController
 
     respond_to do |format|
       if @fail.save
-        format.html { redirect_to  @fail,  notice: 'fail was successfully created.' }
+        format.html { redirect_to  @fail,  notice: 'You created a #Fail. Now share youre #Fail around the internets' }
         format.json { render json: @fail, status: :created, location: @fail }
       else
         format.html { render action: "new" }

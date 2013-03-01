@@ -1,6 +1,9 @@
-$('#fails').append('<%= j render(@fails %>)');
-<% if @products.next_page %>
-$('.pagination').replaceWith('<%= j will_paginate(@fails) %>');
+$boxes = $('<%= j render(@fails) %>')
+$('#fails').append( $boxes ).imagesLoaded( function(){
+         $('#fails').masonry( 'reload');
+});
+<% if @fails.next_page %>
+		$('.pagination').replaceWith('<%= j will_paginate(@fails) %>');
 <% else %>
-$('.pagination').remove();
+	$('.pagination').remove();
 <% end %>

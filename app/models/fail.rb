@@ -8,7 +8,7 @@ class Fail < ActiveRecord::Base
 	validates            :description, length: { :maximum => 200 }
 	validates            :user_id, presence: true
 	validates            :image, presence: true
-  validates            :fail_title, presence: true, length: { :maximum => 50 }
+  	validates            :fail_title, presence: true, length: { :maximum => 50 }
 
 
 end

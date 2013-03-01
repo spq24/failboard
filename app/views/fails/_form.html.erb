@@ -1,22 +1,31 @@
 
 <div class="formfail">
-<center>
- <h1>New #Fail</h1><br />
-<%= simple_form_for(@fail) do |f| %>
-  <%= f.error_notification %>
-  <%= f.full_error :image_file_size, class: "alert alert-error" %>
-  <%= f.full_error :image_content_type, class: "alert alert-error" %>
+  <center>
+    <% if params[:action] == "new" %>
+         <h1>New #Fail</h1><br />
+    <% else %>
+         <h1>Edit #Fail</h1><br />
+    <% end %>
+    
+      <%= simple_form_for(@fail) do |f| %>
 
-  <%= f.input :fail_title, label: "Title of the #Fail" %>
-  <%= f.input :remote_image_url, label: "Link to a #Fail" %>
-  <strong><p>OR...</p></strong><br />
-  <%= f.input :image, label: "Upload a #Fail" %><br />
+            <%= f.error_notification %>
+            <%= f.full_error :image_file_size, class: "alert alert-error" %>
+            <%= f.full_error :image_content_type, class: "alert alert-error" %>
 
-  <%= f.input :description, as: :text, input_html: { rows: "3"} %>
+            <%= f.input :fail_title, label: "Title of the #Fail" %>
+            <%= f.input :remote_image_url, label: "Link to a #Fail" %>
 
-  <div class="form-actions">
-    <%= f.button :submit, class: "btn btn-primary" %>
-  </div>
-<% end %>
-</center>
+            <strong><p>OR...</p></strong><br />
+
+            <%= f.input :image, label: "Upload a #Fail" %><br />
+
+            <%= f.input :description, as: :text, input_html: { rows: "3"} %>
+
+            <div class="form-actions">
+              <%= f.button :submit, class: "btn btn-primary" %>
+            </div>
+
+      <% end %>
+  </center>
 </div>
