@@ -31,7 +31,6 @@ html, body {
 	margin-top: -150px; /* negative value of footer height */
 	height: 300px;
 	clear: both;
-	padding-top: 200px;
 }
 
 /* Opera Fix */
