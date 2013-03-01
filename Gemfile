@@ -16,6 +16,7 @@ gem 'acts_as_votable', '~> 0.5.0'
 gem 'make_voteable'
 gem 'omniauth'
 gem 'omniauth-facebook'
+gem 'nether'
 
 group :production do
 	gem 'pg'
@@ -24,6 +25,7 @@ end
 group :development do
 	gem 'sqlite3'
 	gem 'debugger'
+	gem 'faker'
 end
 
 group :assets do

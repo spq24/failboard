@@ -8,6 +8,6 @@
   <%= render @fails %>
 </div>
 
-<%= will_paginate @fails %>
+<%= nether(@fails.total_pages, fails_path, "#fails") %>
 
 <div class="clear"></div>

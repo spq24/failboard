@@ -4,7 +4,9 @@ class FailsController < ApplicationController
   # GET /fails
   # GET /fails.json
   def index
-    @fails = Fail.order("created_at desc").page(params[:fail]).per_page(10)
+    @fails = Fail.order("created_at desc").paginate(page: params[:page], :per_page => 10)
+
+    render_nether("fails/fail")
 
     respond_to do |format|
       format.html # index.html.erb
