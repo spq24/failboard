@@ -4,7 +4,7 @@ class FailsController < ApplicationController
   # GET /fails
   # GET /fails.json
   def index
-    @fails = Fail.order("created_at desc").page(params[:page]).per_page(10)
+    @fails = Fail.order("created_at desc")
 
 
     respond_to do |format|
