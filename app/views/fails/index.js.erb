@@ -1,9 +1,11 @@
-$boxes = $('<%= j render(@fails) %>')
+$boxes = $('<%= j render(@fails) %>');
 $('#fails').append( $boxes ).imagesLoaded( function(){
-         $('#fails').masonry( 'reload');
+	$('#fails').masonry( 'reload');
 });
-<% if @fails.next_page %>
-		$('.pagination').replaceWith('<%= j will_paginate(@fails) %>');
+<% if (@fails.current_page < @fails.num_pages) %>	
+	setTimeout(function(){
+		$('.pagination').replaceWith('<%= j paginate(@fails) %>');
+	},1000);						
 <% else %>
 	$('.pagination').remove();
 <% end %>

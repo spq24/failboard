@@ -4,13 +4,13 @@
 
 jQuery ->
   $('#fails').imagesLoaded -> 
-  	$('#fails').masonry itemSelector: '.box'  
+  		$('#fails').masonry itemSelector: '.box'  
 
-  if $('.pagination').length
+  if $(".pagination").length
       $(window).scroll ->
-      url = $('.pagination .next_page').attr('href')
-      if url && $(window).scrollTop() > $(document).height() - $(window).height() - 50
-        $('.pagination').text 'Fetching more images...'
-        $.getScript(url)
+      	url = $(".pagination .next a").attr("href")
+      	if url and $(window).scrollTop() > $(document).height() - $(window).height() - 25
+       		$('.pagination').text 'Fetching more fails...'
+        	$.getScript(url)
 
-  		$(window).scroll()
+  $(window).scroll()
