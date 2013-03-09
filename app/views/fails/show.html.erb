@@ -49,11 +49,7 @@
 			  	</center>
 			</p>
 			<center>
-				<%= link_to 'share', "http://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Finfinite-bastion-8143.herokuapp.com%2Ffails%2F#{@fail.id}" %>
-
-
-
-				<a href="http://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Finfinite-bastion-8143.herokuapp.com%2Ffails%2F#{@fail.id}" data-fb_shareaction="share-start" data-posturl="http://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Finfinite-bastion-8143.herokuapp.com%2Ffails%2F#{@fail.id}" class="btn-share fbook icons icons-notext js-fbshare-btn" type="box_count" name="fb_share" target=_blank>share chese</a>
+				<%= link_to image_tag("https://s3.amazonaws.com/failboard/fbshareicon.png"), "https://www.facebook.com/dialog/feed?app_id=534777629886814&link=http%3A%2F%2Finfinite-bastion-8143.herokuapp.com%2Ffails%2F#{@fail.id}&picture=#{@fail.image_url}&Signature=iMcsNessMId1CPwCnD%2BY2D8C6W4%3D&Expires=1362818901&caption=#{@fail.fail_title}&description=#{@fail.description}&redirect_uri=http%3A%2F%2Finfinite-bastion-8143.herokuapp.com%2Ffails%2F#{@fail.id}", :target => "_blank" %>
 
 					<% if current_user == @fail.user %>
 					<hr></hr>
