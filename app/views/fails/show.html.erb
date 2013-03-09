@@ -27,6 +27,15 @@
    }(document, /*debug*/ false));
 </script>
 
+
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=534777629886814";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
 <div class="row">
 	<div class="span6 offset2">
 		<div class="boxtwo">
@@ -40,6 +49,12 @@
 			  	</center>
 			</p>
 			<center>
+				<%= link_to 'share', "http://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Finfinite-bastion-8143.herokuapp.com%2Ffails%2F#{@fail.id}" %>
+
+
+
+				<a href="http://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Finfinite-bastion-8143.herokuapp.com%2Ffails%2F#{@fail.id}" data-fb_shareaction="share-start" data-posturl="http://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Finfinite-bastion-8143.herokuapp.com%2Ffails%2F#{@fail.id}" class="btn-share fbook icons icons-notext js-fbshare-btn" type="box_count" name="fb_share" target=_blank>share chese</a>
+
 					<% if current_user == @fail.user %>
 					<hr></hr>
 					<table border="0" bordercolor="" style="background-color:" width="250px" cellpadding="3" cellspacing="3">

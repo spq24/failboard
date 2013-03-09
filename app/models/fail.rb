@@ -10,5 +10,4 @@ class Fail < ActiveRecord::Base
 	validates            :image, presence: true
   	validates            :fail_title, presence: true, length: { :maximum => 50 }
 
-
 end
