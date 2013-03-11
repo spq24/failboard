@@ -43,14 +43,41 @@
 				<center>
 				  <img src="https://s3.amazonaws.com/failboard/tack.png" id="tack" /><br /><br />
 				  <strong><u><p style="font-size: 32px;"><%= @fail.fail_title %></p></u><strong><br />
-				  <%= image_tag @fail.image %><br /><br />
-				  <p style="font-size: 18px;"><%= @fail.description %></p>
 
-			  	</center>
+				  <%= image_tag @fail.image %><br />
+
+				  <%= link_to image_tag("https://s3.amazonaws.com/failboard/fbshareicon.png"), "https://www.facebook.com/dialog/feed?app_id=534777629886814&link=http%3A%2F%2Finfinite-bastion-8143.herokuapp.com%2Ffails%2F#{@fail.id}&picture=#{@fail.image_url}&Signature=iMcsNessMId1CPwCnD%2BY2D8C6W4%3D&Expires=1362818901&caption=#{@fail.fail_title}&description=#{@fail.description}&redirect_uri=http%3A%2F%2Finfinite-bastion-8143.herokuapp.com%2Ffails%2F#{@fail.id}", :target => "_blank" %>
+					<br /><br />
+
+				  <p style="font-size: 18px;"><%= @fail.description %></p><br /><br />
+
+
+
+
+
+				  	<% if @fail.id != 1 %>
+						<div class="pull-left">
+							<%= link_to image_tag("https://s3.amazonaws.com/failboard/previousfail.png"), "/fails/#{@fail.id - 1}" %>
+						</div>
+					<% else %>
+						<div class="pull-left">
+							<%= image_tag("https://s3.amazonaws.com/failboard/nopreviousfail.png") %>
+						</div>
+				  	<% end %>
+				  <% if @fails_count != @fail.id %>
+						<div class="pull-right">
+							<%= link_to image_tag("https://s3.amazonaws.com/failboard/nextfail.png"), "/fails/#{@fail.id + 1}" %>
+						</div>
+						<br /><br />
+					<% else %>
+						<div class="pull-right">
+							<%= image_tag("https://s3.amazonaws.com/failboard/nonextfail.png") %>
+						</div>
+						<br /><br />
+				  <% end %>
 			</p>
-			<center>
-				<%= link_to image_tag("https://s3.amazonaws.com/failboard/fbshareicon.png"), "https://www.facebook.com/dialog/feed?app_id=534777629886814&link=http%3A%2F%2Finfinite-bastion-8143.herokuapp.com%2Ffails%2F#{@fail.id}&picture=#{@fail.image_url}&Signature=iMcsNessMId1CPwCnD%2BY2D8C6W4%3D&Expires=1362818901&caption=#{@fail.fail_title}&description=#{@fail.description}&redirect_uri=http%3A%2F%2Finfinite-bastion-8143.herokuapp.com%2Ffails%2F#{@fail.id}", :target => "_blank" %>
-
+			
+			<div class="span7">
 					<% if current_user == @fail.user %>
 					<hr></hr>
 					<table border="0" bordercolor="" style="background-color:" width="250px" cellpadding="3" cellspacing="3">
@@ -60,26 +87,37 @@
 						</tr>
 					</table>
 						<br /><br />
-					<% end %>
-						<% if current_user.voted?(@fail) == false %>
-						<div class="pull-right"><%= link_to "LOL", up_vote_fail_url(@fail), :method => :post, class: "btn btn-small btn-primary" %></div>
-						<% end %>
+					<% end %><br /><br />
 
-						<% if @fail.up_votes > 0 %>
-							<center>
-								<% if @fail.up_votes == 1 %>
-									<p><%= @fail.up_votes %> Person has LOL'd at this #FAIL!</p>
-									<% else %>
-									<p><%= @fail.up_votes %> People have LOL'd at this #FAIL!</p>
-								<% end %>
-							</center>
-						<% else %>
-							<center>
-								<p>Be first to LOL at this!</p>
-							</center>
+
+<br /><br />
+			</div>
+			</center>
+
+
+
+			<center>
+						<% if current_user.voted?(@fail) == false %>
+						<div class="pull-right">
+							<if @fail.up_votes != 0 %>
+							<div class="arrow_box"><%= @fail.up_votes %></div><br />
+							<%= link_to "LOL", up_vote_fail_url(@fail), :method => :post, class: "btn btn-small btn-primary" %><br />
 						<% end %>
+								<% if @fail.up_votes > 0 %>
+										<% if @fail.up_votes == 1 %>
+											<div class="arrow_box"><%= @fail.up_votes %></div><br />
+											<p>Person has LOL'd at this #FAIL!</p>
+											<% else %>
+											<div class="arrow_box"><%= @fail.up_votes %></div><br />
+											<p>People have LOL'd at this #FAIL!</p>
+										<% end %>
+								<% else %>
+										<p>Be first to LOL at this!</p>
+								<% end %>
+						</div>
+						</div>
 					</div>
-					<div class="span6">
+					<div class="span6 offset3">
 						<center><%= link_to 'Go back to the #Failboard', fails_path, class: "btn btn-large btn-success" %></center>
 					</div>
 			</center>
@@ -88,9 +126,9 @@
 
 	</div>
 	<br /><br />
-	<div class="span6 offset2">
-		<center><%= content_tag(:div, nil, :class => 'fb-comments', "data-href" => "#{request.protocol}#{request.host_with_port}#{request.fullpath}", "data-width" => '470', "data-num-posts" => "10"  ) %></center>
-		</div>
+	<div class="span6 offset7">
+		<%= content_tag(:div, nil, :class => 'fb-comments', "data-href" => "#{request.protocol}#{request.host_with_port}#{request.fullpath}", "data-width" => '470', "data-num-posts" => "10"  ) %>
+	</div>
 		<div id="fb-root"></div>
 
 	<script>(function(d, s, id) {

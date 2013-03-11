@@ -18,6 +18,7 @@ class FailsController < ApplicationController
   # GET /fails/1.json
   def show
     @fail = Fail.find(params[:id])
+    @fails_count = Fail.count
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @fail }
