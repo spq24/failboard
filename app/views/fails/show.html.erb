@@ -51,8 +51,6 @@
 
 				  <p style="font-size: 18px;"><%= @fail.description %></p><br /><br />
 
-				  <%= Fail.first.id %>
-				  <%= Fail.last.id %>
 
 
 				  	<% if @fail.id != Fail.first.id %>
@@ -64,7 +62,7 @@
 							<%= image_tag("https://s3.amazonaws.com/failboard/nopreviousfail.png") %>
 						</div>
 				  	<% end %>
-				  <% if @fails_count != @fail.id %>
+				  <% if Fail.last.id != @fail.id %>
 						<div class="pull-right">
 							<%= link_to image_tag("https://s3.amazonaws.com/failboard/nextfail.png"), "/fails/#{@fail.id + 1}" %>
 						</div>
