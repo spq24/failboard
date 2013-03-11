@@ -54,8 +54,7 @@
 
 
 
-
-				  	<% if @fail.id != 1 %>
+				  	<% if @fail.id != Fail.first.id %>
 						<div class="pull-left">
 							<%= link_to image_tag("https://s3.amazonaws.com/failboard/previousfail.png"), "/fails/#{@fail.id - 1}" %>
 						</div>
