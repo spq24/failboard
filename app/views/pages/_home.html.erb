@@ -1,15 +1,20 @@
 <% if user_signed_in? %>
-<center><%= image_tag("https://s3.amazonaws.com/failboard/failboard.png") %></center>
-<br /><br /><br />
+	<center><%= image_tag("https://s3.amazonaws.com/failboard/failboard.png") %></center>
+	<br /><br /><br />
 <% else %>
-<div class="hero-unit">
-<center><h1>Welcome to #Failboard</h1>
-<p><em>The Place</em> to find and share all the <strong>Funny #Fails</strong> you find from around the internets all in one place!</p>
-</center>
-<br />
+		<div class="hero-unit">
+			<center><h1>Welcome to #Failboard</h1>
+				<p><em>The Place</em> to find and share all the <strong>Funny #Fails</strong> you find from around the internets all in one place!</p>
+			</center>
+			<br />
 
-<center><%= render '/devise/shared/signup' %><br />
-<iframe src="http://www.facebook.com/plugins/facepile.php?app_id=534777629886814" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:200px;" allowTransparency="true"></iframe> 
-</center>
-</div>
+			<center>
+
+				<%= render '/devise/shared/signup' %><br />
+
+				<iframe src="//www.facebook.com/plugins/like.php?href=http%3A%2F%2Finfinite-bastion-8143.herokuapp.com&amp;send=false&amp;layout=button_count&amp;width=100&amp;show_faces=false&amp;font&amp;colorscheme=light&amp;action=like&amp;height=21&amp;appId=534777629886814" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:75px; height:21px; float: center;" allowTransparency="true"></iframe><br />
+
+				<iframe src="http://www.facebook.com/plugins/facepile.php?app_id=534777629886814" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:200px; height: 60px;" allowTransparency="true"></iframe> 
+			</center>
+		</div>
 <% end %>

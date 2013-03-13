@@ -170,6 +170,7 @@ GEM
       omniauth (~> 1.0)
     orm_adapter (0.4.0)
     pg (0.13.1-x86-mingw32)
+    pin-it-button (0.9.1)
     polyamorous (0.5.0)
       activerecord (~> 3.0)
     polyglot (0.3.3)
@@ -219,6 +220,7 @@ GEM
     treetop (1.4.12)
       polyglot
       polyglot (>= 0.3.1)
+    tweet-button (0.1.0)
     tzinfo (0.3.35)
     uglifier (1.3.0)
       execjs (>= 0.3.0)
@@ -251,8 +253,10 @@ DEPENDENCIES
   omniauth
   omniauth-facebook
   pg
+  pin-it-button
   rails (= 3.2.1)
   sass-rails (~> 3.2.3)
   simple_form
   sqlite3
+  tweet-button
   uglifier (>= 1.0.3)

@@ -37,7 +37,7 @@
 }(document, 'script', 'facebook-jssdk'));</script>
 
 
-
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 
 
 
@@ -51,12 +51,28 @@
 
 				  <%= image_tag @fail.image %><br />
 
-				  <%= link_to image_tag("https://s3.amazonaws.com/failboard/fbshareicon.png"), "https://www.facebook.com/dialog/feed?app_id=534777629886814&link=http%3A%2F%2Finfinite-bastion-8143.herokuapp.com%2Ffails%2F#{@fail.id}&picture=#{@fail.image_url}&Signature=iMcsNessMId1CPwCnD%2BY2D8C6W4%3D&Expires=1362818901&caption=#{@fail.fail_title}&description=#{@fail.description}&redirect_uri=http%3A%2F%2Finfinite-bastion-8143.herokuapp.com%2Ffails%2F#{@fail.id}", :target => "_blank" %>
+
+					<table border="0" bordercolor="" style="background-color:" width="70%" cellpadding="7" cellspacing="5">
+						<tr>
+							<td>
+								<div class="arrow_box"><%= @fail.up_votes %></div><br />
+								<% if current_user.voted?(@fail) == false %>
+									<%= link_to "LOL", up_vote_fail_url(@fail), :method => :post, class: "btn btn-small btn-primary" %>
+								<% else %>
+									<%= image_tag("https://s3.amazonaws.com/failboard/loldone.png") %>
+								<% end %>
+							</td>
+							<td><%= link_to image_tag("https://s3.amazonaws.com/failboard/fbshareicon.png"), "https://www.facebook.com/dialog/feed?app_id=534777629886814&link=http%3A%2F%2Finfinite-bastion-8143.herokuapp.com%2Ffails%2F#{@fail.id}&picture=#{@fail.image_url}&Signature=iMcsNessMId1CPwCnD%2BY2D8C6W4%3D&Expires=1362818901&caption=#{@fail.fail_title}&description=#{@fail.description}&redirect_uri=http%3A%2F%2Finfinite-bastion-8143.herokuapp.com%2Ffails%2F#{@fail.id}", :target => "_blank" %></td>
+							<td><a href="https://twitter.com/share" class="twitter-share-button" data-text="#FAIL" data-hashtags="Failboard">Tweet</a></td>
+
+							<td><a data-pin-config="above" href="//pinterest.com/pin/create/button/" data-pin-do="buttonBookmark" ><img src="//assets.pinterest.com/images/pidgets/pin_it_button.png" /></a></td>
+							<td><a href="http://www.tumblr.com/share" title="Share on Tumblr" target="_blank" style="display:inline-block; text-indent:-9999px; overflow:hidden; width:81px; height:20px; background:url('http://platform.tumblr.com/v1/share_1.png') top left no-repeat transparent;">Share on Tumblr</a></td>
+							<td><a href="http://www.reddit.com/submit" target="_blank" onclick="window.location = 'http://www.reddit.com/submit?url=' + encodeURIComponent(window.location); return false"><img src="http://www.reddit.com/static/spreddit7.gif" alt="submit to reddit" border="0" /></a></td>
+						</tr>
+					</table>
+
+
 					<br /><br />
-
-
-
-
 
 				  <p style="font-size: 18px;"><%= @fail.description %></p><br /><br />
 
@@ -104,23 +120,21 @@
 
 
 			<center>
-						<% if current_user.voted?(@fail) == false %>
-						<div class="pull-right">
-							<if @fail.up_votes != 0 %>
-							<div class="arrow_box"><%= @fail.up_votes %></div><br />
-							<%= link_to "LOL", up_vote_fail_url(@fail), :method => :post, class: "btn btn-small btn-primary" %><br />
-						<% end %>
+
+
+
 								<% if @fail.up_votes > 0 %>
 										<% if @fail.up_votes == 1 %>
-											<div class="arrow_box"><%= @fail.up_votes %></div><br />
-											<p>Person has LOL'd at this #FAIL!</p>
+												<div class="arrow_box"><%= @fail.up_votes %></div><br />
+													<p>Person has LOL'd at this #FAIL!</p>
 											<% else %>
-											<div class="arrow_box"><%= @fail.up_votes %></div><br />
-											<p>People have LOL'd at this #FAIL!</p>
+												<div class="arrow_box"><%= @fail.up_votes %></div><br />
+													<p>People have LOL'd at this #FAIL!</p>
 										<% end %>
 								<% else %>
 										<p>Be first to LOL at this!</p>
 								<% end %>
+
 						</div>
 						</div>
 					</div>
