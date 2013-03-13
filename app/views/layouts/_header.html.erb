@@ -35,6 +35,7 @@
                 </ul>
             <% else %>
             <ul class="nav">
+              <li style="padding-top: 10px;"><%= link_to image_tag("https://s3.amazonaws.com/failboard/fblogin.png"), user_omniauth_authorize_path(:facebook)%></li>
               <li><a href="/users/sign_in"><button class="btn btn-info btn-primary">Login</button></a></li>
             </ul>
             <% end %>

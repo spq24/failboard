@@ -36,6 +36,11 @@
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
 
+
+
+
+
+
 <div class="row">
 	<div class="span6 offset2">
 		<div class="boxtwo">
@@ -48,6 +53,10 @@
 
 				  <%= link_to image_tag("https://s3.amazonaws.com/failboard/fbshareicon.png"), "https://www.facebook.com/dialog/feed?app_id=534777629886814&link=http%3A%2F%2Finfinite-bastion-8143.herokuapp.com%2Ffails%2F#{@fail.id}&picture=#{@fail.image_url}&Signature=iMcsNessMId1CPwCnD%2BY2D8C6W4%3D&Expires=1362818901&caption=#{@fail.fail_title}&description=#{@fail.description}&redirect_uri=http%3A%2F%2Finfinite-bastion-8143.herokuapp.com%2Ffails%2F#{@fail.id}", :target => "_blank" %>
 					<br /><br />
+
+
+
+
 
 				  <p style="font-size: 18px;"><%= @fail.description %></p><br /><br />
 
