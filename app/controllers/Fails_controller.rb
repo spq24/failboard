@@ -10,6 +10,8 @@ class FailsController < ApplicationController
      @fails = Fail.order("created_at desc").page params[:page]
     end
 
+    @tags = Fail.tag_counts_on(:tags, :limit => 30, :order => "count desc")
+
     respond_to do |format|
       format.html # index.html.erb
       format.js
