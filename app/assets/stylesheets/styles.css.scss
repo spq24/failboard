@@ -84,6 +84,18 @@ body {
   background-color:#FCF0AD;
 }
 
+.boxthree {
+  margin: 25px;
+  padding: 5px;
+  font-size: 11px;
+  line-height: 1.4em;
+  float: center;
+  box-shadow: 1px 1px 10px #444;
+  width: 700px;
+  background-color:#FCF0AD;
+}
+
+
 .boxtwo img {
   display: block;
   -webkit-border-radius: 5px;
@@ -222,4 +234,14 @@ margin-left: -20px;
 float: center;
 min-height: 1px;
 margin-left: 90px;
+}
+
+/* Tag Cloud */
+
+#tag_cloud {
+  width: 400px;
+  line-height: 1.6em;
+  .s { font-size: 0.8em; }
+  .m { font-size: 1.2em; }
+  .l { font-size: 1.8em; }
 }

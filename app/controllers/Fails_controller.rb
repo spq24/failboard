@@ -4,8 +4,11 @@ class FailsController < ApplicationController
   # GET /fails
   # GET /fails.json
   def index
-    @fails = Fail.order("created_at desc").page params[:page]
-
+    if params[:tag]
+     @fails = Fail.tagged_with(params[:tag]).page params[:page]
+    else
+     @fails = Fail.order("created_at desc").page params[:page]
+    end
 
     respond_to do |format|
       format.html # index.html.erb

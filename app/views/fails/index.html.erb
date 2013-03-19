@@ -2,7 +2,20 @@
 
 <% if !user_signed_in? %>
 <center><%= image_tag("https://s3.amazonaws.com/failboard/failboard.png") %></center><br /><br />
+
 <% end %>
+
+	<center>
+		<div class="boxthree">
+				<div id="tag_cloud">
+					<h2>Most Popular Tags</h2>
+				  <% tag_cloud Fail.tag_counts, %w{s m l} do |tag, css_class| %>
+				    <%= link_to tag.name, tag_path(tag.name), class: css_class %>
+				  <% end %>
+				</div>
+		</div>
+	</center>
+
 
 <div id="fails">
   <%= render @fails %>

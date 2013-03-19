@@ -4,6 +4,7 @@ Failboard::Application.routes.draw do
 
   devise_for :admin_users, ActiveAdmin::Devise.config
 
+  get 'tags/:tag', to: 'fails#index', as: :tag
   resources :fails do
       member do
         post :up_vote

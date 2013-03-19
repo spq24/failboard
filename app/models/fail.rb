@@ -1,6 +1,7 @@
 class Fail < ActiveRecord::Base
-  attr_accessible :description, :image, :remote_image_url, :fail_title
+  attr_accessible :description, :image, :remote_image_url, :fail_title, :tag_list
   make_voteable
+  acts_as_taggable
 
   belongs_to :user
   mount_uploader :image, ImageUploader

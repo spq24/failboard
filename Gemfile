@@ -20,6 +20,7 @@ gem 'activeadmin', 	  :git => "git://github.com/gregbell/active_admin.git"
 gem 'meta_search',    '>= 1.1.0.pre'
 gem 'tweet-button'
 gem 'pin-it-button'
+gem 'acts-as-taggable-on'
 
 group :production do
 	gem 'pg'

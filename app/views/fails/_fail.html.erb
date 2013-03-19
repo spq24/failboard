@@ -9,6 +9,8 @@
       	<%= fail.description %>
  	 </p>
  	 <br />
+ 	 <p>Tags: <%= raw fail.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %></p>
+ 	 <br />
  	 <p>
  	 	<strong>
  	 		
