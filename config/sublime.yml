@@ -1,0 +1,11 @@
+SITE:
+  TOKEN: qok0no5g
+
+  source:         #MP4
+  source_hd_mp4:  #HD MP4
+  source_webm:    #webm 
+  source_webm_hd:  #HD WebM
+  width:          #width of the video
+  height:         #height of the video
+  poster:         #image that will be displayed on the screen
+  class:          #CSS class of the video player container

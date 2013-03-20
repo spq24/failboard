@@ -13,16 +13,29 @@
             <%= f.full_error :image_file_size, class: "alert alert-error" %>
             <%= f.full_error :image_content_type, class: "alert alert-error" %>
 
-            <%= f.input :fail_title, label: "Title of the #Fail" %>
-            <%= f.input :remote_image_url, label: "Link to a #Fail" %>
+
+            <strong><p>Title of the #Fail</p></strong>
+            <%= f.input :fail_title, label: "" %><br />
+
+
+            <p><strong>Link to a #Fail</strong> (Only for images!)</p>
+
+            <%= f.input :remote_image_url, label: "" %>
+            
 
             <strong><p>OR...</p></strong><br />
+            
+            <strong><p>Upload a Fail</p></strong>
 
-            <%= f.input :image, label: "Upload a #Fail" %><br />
+            <p>You can upload images or MP4 videos</p><br />
+            <%= f.input :image, label: "" %><br />
+
 
             <%= f.input :description, as: :text, input_html: { rows: "3"} %>
 
-            <%= f.input :tag_list, label: "Fail Tags (Serarate by comma!)" %>
+            <strong><p>Fail Tags (Serarate by comma!)</p></strong>
+
+            <%= f.input :tag_list %>
 
             <div class="form-actions">
               <%= f.button :submit, class: "btn btn-primary" %>

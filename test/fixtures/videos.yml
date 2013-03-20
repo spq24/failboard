@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  attachment: MyString
+  zencoder_output_id: MyString
+  processed: false
+
+two:
+  attachment: MyString
+  zencoder_output_id: MyString
+  processed: false

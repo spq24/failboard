@@ -2,14 +2,23 @@
 
 		<center><img src="https://s3.amazonaws.com/failboard/tack.png" id="tack" /></center><br />
 
-	<center><strong><p style="font-size: 16px;"><u><%= fail.fail_title %></u></p></strong></center>
-	<center><%= link_to (image_tag fail.image), fail %></center>
+	<center>
+		<strong><p style="font-size: 16px;"><u><%= fail.fail_title %></u></p></strong>
+
+		<% if File.extname(fail.image_url).include? "mp4" %>
+		<%= link_to (image_tag "https://s3.amazonaws.com/failboard/failvideo.png"), fail %>
+		<% else %>
+		<%= link_to (image_tag fail.image), fail %>
+		<% end %>
+	</center>
 	<hr></hr>
      <p class="description"style="font-size: 14px;">
       	<%= fail.description %>
  	 </p>
  	 <br />
+ 	 <% if fail.tag_list.any? %>
  	 <p>Tags: <%= raw fail.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %></p>
+ 	 <% end %>
  	 <br />
  	 <p>
  	 	<strong>

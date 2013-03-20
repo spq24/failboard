@@ -46,12 +46,24 @@
 		<div class="boxtwo">
 			<p>
 				<center>
-				  <img src="https://s3.amazonaws.com/failboard/tack.png" id="tack" /><br /><br />
-				  <strong><u><p style="font-size: 32px;"><%= @fail.fail_title %></p></u><strong><br />
 
-				  <%= image_tag @fail.image %><br />
+				  <b><u><p style="font-size:22px;"><%= @fail.fail_title %></p></u></b>
+				  <br />
+				  <br />
+				
+				  <% if File.extname(@fail.image_url).include? "mp4" %>
+				  <a href="#video1" class="sublime" data-uid="" data-autoresize="fill"><img src="https://s3.amazonaws.com/failboard/failvideo.png" /></a>
+				  <video id="video1" width="640" height="360" style="display:none" data-uid="" data-autoresize="fill" preload="none" data-autoplay="true">
+						<%= sublimevideo_rails source: @fail.image_url, width:"100%", height:"400px"%>
+				 </video>
 
+				 <% else %>
+				  
+				  		<%= image_tag @fail.image %>
 
+				  <% end %>
+				  <br />
+				  <br />
 					<table border="0" bordercolor="" style="background-color:" width="70%" cellpadding="7" cellspacing="5">
 						<tr>
 							<td>
@@ -72,9 +84,10 @@
 					</table>
 					<br />
 
+					<% if @fail.tag_list.any? %>
 					<p>Tags: <%= @fail.tag_list %></p>
 					<br /><br />
-
+					<% end %>
 				  <p style="font-size: 18px;"><%= @fail.description %></p><br /><br />
 
 
@@ -152,6 +165,11 @@
 		<%= content_tag(:div, nil, :class => 'fb-comments', "data-href" => "#{request.protocol}#{request.host_with_port}#{request.fullpath}", "data-width" => '470', "data-num-posts" => "10"  ) %>
 	</div>
 		<div id="fb-root"></div>
+
+	
+
+
+
 
 	<script>(function(d, s, id) {
 	  var js, fjs = d.getElementsByTagName(s)[0];

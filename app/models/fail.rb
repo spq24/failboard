@@ -6,6 +6,7 @@ class Fail < ActiveRecord::Base
   belongs_to :user
   mount_uploader :image, ImageUploader
 
+
 	validates            :description, length: { :maximum => 200 }
 	validates            :user_id, presence: true
 	validates            :image, presence: true
@@ -17,5 +18,4 @@ class Fail < ActiveRecord::Base
 		number_of_tags = tag_list_cache_on("tags").uniq.length
 		errors.add(:base, "Please only add up to 5 tags") if number_of_tags > 5
 	end
-
 end

@@ -53,7 +53,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:
    def extension_white_list
-     %w(jpg jpeg gif png)
+     %w(jpg jpeg gif png mp4 mov avi mkv wmv mpg)
    end
 
   # Override the filename of the uploaded files:
@@ -61,5 +61,21 @@ class ImageUploader < CarrierWave::Uploader::Base
   # def filename
   #   "something.jpg" if original_filename
   # end
+
+    def is_image?(image)
+    if image.content_type.match(/image\/jpeg|image\/gif|image\/png|image\/pjpeg|image\/jpg/i)
+      return true
+    else
+      return false
+    end
+  end
+ 
+  def is_video?(image)
+    if image.content_type.match(/video/i)
+      return true
+    else
+      return false
+    end
+  end
 
 end

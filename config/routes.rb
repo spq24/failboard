@@ -1,7 +1,10 @@
 Failboard::Application.routes.draw do
+  
   break if ARGV.join.include? 'assets:precompile'
   ActiveAdmin.routes(self)
 
+  resources :videos
+  
   devise_for :admin_users, ActiveAdmin::Devise.config
 
   get 'tags/:tag', to: 'fails#index', as: :tag
@@ -10,6 +13,8 @@ Failboard::Application.routes.draw do
         post :up_vote
       end
   end
+
+  post "zencoder-callback" => "zencoder_callback#create", :as => "zencoder_callback"
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 

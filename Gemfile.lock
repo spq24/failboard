@@ -67,6 +67,11 @@ GEM
     carrierwave (0.8.0)
       activemodel (>= 3.2.0)
       activesupport (>= 3.2.0)
+    carrierwave-video (0.3.0)
+      carrierwave
+      streamio-ffmpeg
+    carrierwave-video-thumbnailer (0.1.2)
+      carrierwave
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
       railties (~> 3.2.0)
@@ -217,6 +222,8 @@ GEM
       rack (~> 1.0)
       tilt (~> 1.1, != 1.3.0)
     sqlite3 (1.3.7-x86-mingw32)
+    streamio-ffmpeg (0.9.0)
+    sublimevideo_rails (0.0.11)
     thor (0.14.6)
     tilt (1.3.3)
     treetop (1.4.12)
@@ -230,6 +237,8 @@ GEM
     uuidtools (2.1.3)
     warden (1.2.1)
       rack (>= 1.0)
+    zencoder (2.4.4)
+      multi_json
 
 PLATFORMS
   x86-mingw32
@@ -241,6 +250,8 @@ DEPENDENCIES
   aws-sdk
   bootstrap-sass
   carrierwave
+  carrierwave-video
+  carrierwave-video-thumbnailer
   coffee-rails (~> 3.2.1)
   debugger
   devise
@@ -261,5 +272,7 @@ DEPENDENCIES
   sass-rails (~> 3.2.3)
   simple_form
   sqlite3
+  sublimevideo_rails
   tweet-button
   uglifier (>= 1.0.3)
+  zencoder

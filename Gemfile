@@ -21,6 +21,8 @@ gem 'meta_search',    '>= 1.1.0.pre'
 gem 'tweet-button'
 gem 'pin-it-button'
 gem 'acts-as-taggable-on'
+gem 'sublimevideo_rails'
+gem 'carrierwave-video-thumbnailer'
 
 group :production do
 	gem 'pg'
