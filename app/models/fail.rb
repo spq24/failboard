@@ -1,5 +1,5 @@
 class Fail < ActiveRecord::Base
-  attr_accessible :description, :image, :remote_image_url, :fail_title, :tag_list
+  attr_accessible :description, :image, :remote_image_url, :fail_title, :tag_list, :processed, :zencoder_output_id
   make_voteable
   acts_as_taggable
 
@@ -18,4 +18,16 @@ class Fail < ActiveRecord::Base
 		number_of_tags = tag_list_cache_on("tags").uniq.length
 		errors.add(:base, "Please only add up to 5 tags") if number_of_tags > 5
 	end
+
+	def processed!
+    	update_attribute(:processed, true)
+    end
+
+     def next
+    	user.fails.where("id > ?", id).order("id ASC").first
+  	end
+
+  	def prev
+    	user.fails.where("id < ?", id).order("id DESC").first
+  	end
 end

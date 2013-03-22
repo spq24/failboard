@@ -3,7 +3,6 @@ Failboard::Application.routes.draw do
   break if ARGV.join.include? 'assets:precompile'
   ActiveAdmin.routes(self)
 
-  resources :videos
   
   devise_for :admin_users, ActiveAdmin::Devise.config
 

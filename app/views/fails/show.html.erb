@@ -94,7 +94,7 @@
 
 				  	<% if @fail.id != Fail.first.id %>
 						<div class="pull-left">
-							<%= link_to image_tag("https://s3.amazonaws.com/failboard/previousfail.png"), "/fails/#{@fail.id - 1}" %>
+							<%= link_to image_tag("https://s3.amazonaws.com/failboard/previousfail.png"), @fail.prev %>
 						</div>
 					<% else %>
 						<div class="pull-left">
@@ -103,7 +103,7 @@
 				  	<% end %>
 				  <% if Fail.last.id != @fail.id %>
 						<div class="pull-right">
-							<%= link_to image_tag("https://s3.amazonaws.com/failboard/nextfail.png"), "/fails/#{@fail.id + 1}" %>
+							<%= link_to image_tag("https://s3.amazonaws.com/failboard/nextfail.png"), @fail.next %>
 						</div>
 						<br /><br />
 					<% else %>

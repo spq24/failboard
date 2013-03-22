@@ -20,8 +20,15 @@ class ImageUploader < CarrierWave::Uploader::Base
 
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
+
+  after :store, :zencode
+
   def store_dir
     "failboard/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
+  end
+
+  def filename
+    "video.mp4" if original_filename
   end
 
 
@@ -62,19 +69,40 @@ class ImageUploader < CarrierWave::Uploader::Base
   #   "something.jpg" if original_filename
   # end
 
-    def is_image?(image)
-    if image.content_type.match(/image\/jpeg|image\/gif|image\/png|image\/pjpeg|image\/jpg/i)
-      return true
-    else
-      return false
-    end
-  end
+
+   private 
  
-  def is_video?(image)
-    if image.content_type.match(/video/i)
-      return true
-    else
-      return false
+  def zencode(args)
+    if self.version_name.nil?
+      bucket = ImageUploader.fog_directory
+      input = "https://failboard.s3.amazonaws.com/failboard/fail/image/#{@model.id}/video.mp4"
+      base_url = "https://failboard.s3.amazonaws.com/failboard/fail/image/#{@model.id}"
+     
+    zencoder_response = Zencoder::Job.create({
+      :input => input,
+      :output => [{
+        :base_url => base_url,
+        :filename => "video.mp4",
+        :label => "web",
+        :video_codec => "h264",
+        :audio_codec => "aac",
+        :quality => 3,
+        :width => 854,
+        :height => 480,
+        :format => "mp4",
+        :aspect_mode => "preserve",
+        :public => 1
+      }]
+    })
+
+    end
+ 
+    zencoder_response.body["outputs"].each do |output|
+      if output["label"] == "web"
+        @model.zencoder_output_id = output["id"]
+        @model.processed = false
+        @model.save(:validate => false)
+      end
     end
   end
 
