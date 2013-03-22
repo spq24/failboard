@@ -1,5 +1,7 @@
 Failboard::Application.routes.draw do
   
+  get "users/show"
+
   break if ARGV.join.include? 'assets:precompile'
   ActiveAdmin.routes(self)
 
@@ -19,9 +21,10 @@ Failboard::Application.routes.draw do
 
   root :to => 'fails#index'
 
-  match '/about',   to: 'pages#about'
-  match '/fails',   to: 'fails#index'
+  match '/about',     to: 'pages#about'
+  match '/fails',     to: 'fails#index'
   match '/new-fail',  to: 'fails#new'
+  match 'users/:id',  to: 'users#show', :as => :user
 
 
   # The priority is based upon order of creation:
