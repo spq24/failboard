@@ -24,7 +24,7 @@
           <li><a href="/fails/new"><button class="btn btn-success">Add a #Fail</button></a></li>
           <li><iframe src="//www.facebook.com/plugins/like.php?href=http%3A%2F%2Finfinite-bastion-8143.herokuapp.com&amp;send=false&amp;layout=button_count&amp;width=100&amp;show_faces=false&amp;font&amp;colorscheme=light&amp;action=like&amp;height=21&amp;appId=534777629886814" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:75px; height:21px; float: center; padding-top: 20px;" allowTransparency="true"></iframe></li>
          </ul>
-         <%= link_to(current_user.name, current_user) %>
+         
           <ul class="nav pull-right">
             <% if user_signed_in? %> 
               <button class="btn btn-info dropdown-toggle" data-toggle="dropdown"><%= current_user.name %>
@@ -32,6 +32,7 @@
               </button>
                 <ul class="dropdown-menu">
                   <!-- dropdown menu links -->
+                  <li><%= link_to("My #Fails", current_user) %></li>
                   <li><%= link_to "Edit Profile", edit_user_registration_path %></li>
                   <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
                 </ul>
