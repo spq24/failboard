@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130322054744) do
+ActiveRecord::Schema.define(:version => 20130325201911) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -60,6 +60,10 @@ ActiveRecord::Schema.define(:version => 20130322054744) do
     t.string   "remote_image_url"
     t.string   "zencoder_output_id"
     t.boolean  "processed"
+    t.string   "content_type"
+    t.integer  "file_size"
+    t.integer  "job_id"
+    t.boolean  "item_processing"
   end
 
   add_index "fails", ["user_id"], :name => "index_pins_on_user_id"

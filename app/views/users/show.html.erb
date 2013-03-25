@@ -1,7 +1,10 @@
 <br />
 <br />
-<center><%= image_tag("https://s3.amazonaws.com/failboard/myfails.png") %></center>
-<br />
+<center><%= image_tag("https://s3.amazonaws.com/failboard/myfails.png") %>
+<div class="boxfour">
+<strong><u><%= @user.name %></u></strong>
+</div>
+</center>
 <br />
 <br />
 <%= render @fails %>
