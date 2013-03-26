@@ -29,7 +29,7 @@ class ImageUploader < CarrierWave::Uploader::Base
 
 
   def store_dir
-    "failboard/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
+    "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
   end
 
 
@@ -119,13 +119,15 @@ class ImageUploader < CarrierWave::Uploader::Base
           :aspect_mode => "preserve",
           :width => 854,
           :height => 480,
-          :public => 1
+          :public => "true",
+          :h264_profile => "high",
+          :credentials => "s3_production"
         }
       end
 
     end
  
-      zencoder_response = Zencoder::Job.create({
+    zencoder_response = Zencoder::Job.create({
         :input => input,
         # callback on the JOB completion!
         :notifications => [zencoder_callback_url(:protocol => 'http')],
