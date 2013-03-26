@@ -54,7 +54,7 @@
 				  <% if File.extname(@fail.image_url).include? "mp4" %>
 				  <a href="#video1" class="sublime" data-uid="" data-autoresize="fill"><img src="https://s3.amazonaws.com/failboard/failvideo.png" /></a>
 				  <video id="video1" width="640" height="360" style="display:none" data-uid="" data-autoresize="fill" preload="none" data-autoplay="true">
-						<%= sublimevideo_rails source: @fail.image_url, source_webm: @fail.image_url, width:"100%", height:"400px"%>
+						<%= sublimevideo_rails source: @fail.image_url, source_webm: "https://failboard.s3.amazonaws.com/failboard/fail/image/#{@fail.id}/#{File.basename(@fail.image_url, File.extname(@fail.image_url).downcase)}.webm", width:"100%", height:"400px"%>
 				 </video>
 
 				 <% else %>
@@ -165,6 +165,8 @@
 		<%= content_tag(:div, nil, :class => 'fb-comments', "data-href" => "#{request.protocol}#{request.host_with_port}#{request.fullpath}", "data-width" => '470', "data-num-posts" => "10"  ) %>
 	</div>
 		<div id="fb-root"></div>
+
+		<%= File.basename(@fail.image_url, File.extname(@fail.image_url).downcase) %>
 
 	<script>(function(d, s, id) {
 	  var js, fjs = d.getElementsByTagName(s)[0];
