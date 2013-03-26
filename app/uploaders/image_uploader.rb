@@ -110,7 +110,7 @@ class ImageUploader < CarrierWave::Uploader::Base
       filename = File.basename(self.path)
       ext = File.extname(self.path)
       outputs = []
-      Fails.each do |key, value|
+      VIDEOS.each do |key, value|
         outputs << {
           :base_url => base_url,
           :filename => filename.gsub(ext, '.' + value),
