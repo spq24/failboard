@@ -51,7 +51,11 @@
 				  <br />
 				  <br />
 				
+				  <% if fail.youtube_url.present? %>
 				  <%= raw(youtube_embed(@fail.youtube_url)) %>
+				  <% else %>
+				  <%= image_tag @fail.image_url %>
+				  <% end %>
 
 
 
