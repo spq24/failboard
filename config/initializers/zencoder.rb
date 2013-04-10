@@ -1,1 +1,0 @@
-Zencoder.api_key = 'afdbeb096d6662aa65af69ed5706fed5'

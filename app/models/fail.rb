@@ -1,5 +1,5 @@
 class Fail < ActiveRecord::Base
-  attr_accessible :description, :image, :remote_image_url, :fail_title, :tag_list, :processed, :zencoder_output_id
+  attr_accessible :description, :image, :remote_image_url, :fail_title, :tag_list, :processed, :youtube_url
   make_voteable
   acts_as_taggable
 
@@ -10,7 +10,7 @@ class Fail < ActiveRecord::Base
 
 	validates            :description, length: { :maximum => 200 }
 	validates            :user_id, presence: true
-	validates            :image, presence: true
+	validates            :image, presence: true, :unless => :youtube_url? 
   validates            :fail_title, presence: true, length: { :maximum => 50 }
   validate 			       :maximum_amount_of_tags
 
@@ -36,4 +36,6 @@ class Fail < ActiveRecord::Base
   	def prev
     	user.fails.where("id < ?", id).order("id DESC").first
   	end
+
+
 end

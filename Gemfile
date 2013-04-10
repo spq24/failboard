@@ -22,8 +22,8 @@ gem 'tweet-button'
 gem 'pin-it-button'
 gem 'acts-as-taggable-on'
 gem 'sublimevideo_rails'
-gem 'carrierwave-video-thumbnailer'
 gem 'zencoder'
+
 
 
 

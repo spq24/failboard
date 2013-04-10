@@ -5,8 +5,9 @@
 	<center>
 		<strong><p style="font-size: 16px;"><u><%= fail.fail_title %></u></p></strong>
 
-		<% if File.extname(fail.image_url).include? "mp4" %>
-		<%= link_to (image_tag "https://s3.amazonaws.com/failboard/failvideo.png"), fail %>
+
+		<% if fail.youtube_url.present? %>
+		<%= link_to (image_tag "http://img.youtube.com/vi/#{parse_youtube(fail.youtube_url)}/1.jpg"), fail %>
 		<% else %>
 		<%= link_to (image_tag fail.image), fail %>
 		<% end %>
@@ -22,8 +23,7 @@
  	 <br />
  	 <p>
  	 	<strong>
- 	 		
- 	 	
+ 	 		 	 	
 	 </p>
 	<div class="pull-right">
 		<% if fail.up_votes > 0 %>
