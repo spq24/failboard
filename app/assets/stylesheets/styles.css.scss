@@ -46,6 +46,9 @@ body {
 
 /* Required for jQuery Masonry */
 
+
+
+
 .box {
 	margin: 5px;
 	padding: 5px;
@@ -55,6 +58,12 @@ body {
 	box-shadow: 1px 1px 10px #444;
 	width: 214px;
   background-color:#FCF0AD;
+    /* Firefox */  
+  -moz-box-shadow:5px 5px 7px rgba(33,33,33,1);  
+  /* Safari+Chrome */  
+  -webkit-box-shadow: 5px 5px 7px rgba(33,33,33,.7);  
+  /* Opera */  
+  box-shadow: 5px 5px 7px rgba(33,33,33,.7);
 }
 
 .box img {
@@ -93,6 +102,12 @@ body {
   box-shadow: 1px 1px 10px #444;
   width: 700px;
   background-color:#FCF0AD;
+  /* Firefox */  
+  -moz-box-shadow:5px 5px 7px rgba(33,33,33,1);  
+  /* Safari+Chrome */  
+  -webkit-box-shadow: 5px 5px 7px rgba(33,33,33,.7);  
+  /* Opera */  
+  box-shadow: 5px 5px 7px rgba(33,33,33,.7);
 }
 
 .boxfour {
