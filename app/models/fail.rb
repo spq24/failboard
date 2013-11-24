@@ -3,6 +3,7 @@ class Fail < ActiveRecord::Base
   make_voteable
   acts_as_taggable
 
+  belongs_to :album
   belongs_to :user
 
   mount_uploader :image, ImageUploader

@@ -1,0 +1,13 @@
+<div class="box">
+
+		<center><img src="https://s3.amazonaws.com/failboard/tack.png" id="tack" /></center><br />
+
+	<center>
+		<strong><p style="font-size: 16px;"><u><%= album.name %></u></p></strong>
+
+		<%= link_to (image_tag album.image), album %>
+
+	</center>
+  <p>Posted by  #link_to album.user.name, album.user</p>
+
+</div>

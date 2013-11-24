@@ -1,0 +1,136 @@
+<div id="fb-root"></div>
+<script>
+  window.fbAsyncInit = function() {
+    // init the FB JS SDK
+    FB.init({
+      appId      : '534777629886814', // App ID from the App Dashboard
+      channelUrl : '//www.infinite-bastion-8143.herokuapp.com', // Channel File for x-domain communication
+      status     : true, // check the login status upon init?
+      cookie     : true, // set sessions cookies to allow your server to access the session?
+      xfbml      : true  // parse XFBML tags on this page?
+    });
+
+    // Additional initialization code such as adding Event Listeners goes here
+
+  };
+
+//added in a comment
+  // Load the SDK's source Asynchronously
+  // Note that the debug version is being actively developed and might 
+  // contain some type checks that are overly strict. 
+  // Please report such bugs using the bugs tool.
+  (function(d, debug){
+     var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement('script'); js.id = id; js.async = true;
+     js.src = "//connect.facebook.net/en_US/all" + (debug ? "/debug" : "") + ".js";
+     ref.parentNode.insertBefore(js, ref);
+   }(document, /*debug*/ false));
+</script>
+
+
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=534777629886814";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
+
+
+<div class="row">
+	<div class="span6 offset2">
+		<div class="boxtwo">
+			<p>
+				<center>
+
+				  <b><u><p style="font-size:22px;"><%= @album.name %></p></u></b>
+				  <br />
+				  <br />
+				
+
+				  <%= image_tag @album.image_url %>
+
+
+
+
+				  <br />
+				  <br />
+				  <div class="sharetable">
+					<table border="0" bordercolor="" style="background-color:" width="70%" cellpadding="7" cellspacing="5">
+						<tr>
+							
+							<td>
+							</td>
+
+							<td><%= link_to image_tag("https://s3.amazonaws.com/failboard/fbshareicon.png"), "https://www.facebook.com/dialog/feed?app_id=534777629886814&link=http%3A%2F%2Finfinite-bastion-8143.herokuapp.com%2Falbums%2F#{@album.id}&picture=#{@album.image_url}&Signature=iMcsNessMId1CPwCnD%2BY2D8C6W4%3D&Expires=1362818901&caption=#{@album.name}&description=#{@album.name}&redirect_uri=http%3A%2F%2Finfinite-bastion-8143.herokuapp.com%2Falbums%2F#{@album.id}", :target => "_blank" %></td>
+
+							<td><a href="https://twitter.com/share" class="twitter-share-button" data-text="#album" data-hashtags="albumboard">Tweet</a></td>
+
+							<td><a data-pin-config="above" href="//pinterest.com/pin/create/button/" data-pin-do="buttonBookmark" ><img src="//assets.pinterest.com/images/pidgets/pin_it_button.png" /></a></td>
+
+							<td><a href="http://www.tumblr.com/share" title="Share on Tumblr" target="_blank" style="display:inline-block; text-indent:-9999px; overflow:hidden; width:81px; height:20px; background:url('http://platform.tumblr.com/v1/share_1.png') top left no-repeat transparent;">Share on Tumblr</a></td>
+
+							<td><a href="http://www.reddit.com/submit" target="_blank" onclick="window.location = 'http://www.reddit.com/submit?url=' + encodeURIComponent(window.location); return false"><img src="http://www.reddit.com/static/spreddit7.gif" alt="submit to reddit" border="0" /></a></td>
+						</tr>
+					</table>
+				</div>
+					<br />
+
+
+
+			</p>
+			
+			<div class="span7">
+					<% if current_user == @album.user %>
+					<hr></hr>
+					<table border="0" bordercolor="" style="background-color:" width="250px" cellpadding="3" cellspacing="3">
+						<tr>
+							<td><%= link_to 'Edit This album', edit_album_path(@album), class: "btn btn-small btn-warning" %></td>
+							<td><%= link_to 'Delete This album', @album, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-small btn-danger" %></td>
+						</tr>
+					</table>
+						<br /><br />
+					<% end %><br /><br />
+
+
+<br /><br />
+			</div>
+			</center>
+
+
+
+			<center>
+
+
+						</div>
+						</div>
+					</div>
+					<div class="span6 offset3">
+						<center><%= link_to 'Go back to the #albumboard', albums_path, class: "btn btn-large btn-success" %></center>
+					</div>
+			</center>
+
+		</div>
+
+	</div>
+	<br /><br />
+	<div class="span6 offset7">
+		<%= content_tag(:div, nil, :class => 'fb-comments', "data-href" => "#{request.protocol}#{request.host_with_port}#{request.fullpath}", "data-width" => '470', "data-num-posts" => "10"  ) %>
+	</div>
+		<div id="fb-root"></div>
+
+
+	<script>(function(d, s, id) {
+	  var js, fjs = d.getElementsByTagName(s)[0];
+	  if (d.getElementById(id)) return;
+	  js = d.createElement(s); js.id = id;
+	  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=534777629886814";
+	  fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));
+	</script>	
+</div>

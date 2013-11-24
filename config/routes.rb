@@ -1,5 +1,7 @@
 Failboard::Application.routes.draw do
   
+  get "albums/new"
+
   get "users/show"
 
   break if ARGV.join.include? 'assets:precompile'
@@ -15,6 +17,9 @@ Failboard::Application.routes.draw do
       end
   end
 
+  resources :albums do
+  end
+
   post "zencoder-callback" => "zencoder_callback#create", :as => "zencoder_callback"
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
@@ -25,6 +30,7 @@ Failboard::Application.routes.draw do
   match '/fails',     to: 'fails#index'
   match '/new-fail',  to: 'fails#new'
   match 'users/:id',  to: 'users#show', :as => :user
+  match '/new-album', to: 'albums#new'
 
 
   # The priority is based upon order of creation:

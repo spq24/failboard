@@ -1,0 +1,30 @@
+<div class="formfail">
+  <center>
+    <% if params[:action] == "new" %>
+         <h1>New Album</h1><br />
+    <% else %>
+         <h1>Edit Album</h1><br />
+    <% end %>
+    
+      <%= simple_form_for(@album) do |f| %>
+
+            <%= f.error_notification %>
+            <%= f.full_error :image_file_size, class: "alert alert-error" %>
+            <%= f.full_error :image_content_type, class: "alert alert-error" %>
+
+
+            <strong><p>Name of Album</p></strong>
+            <%= f.input :name, label: "" %><br />
+            
+            <strong><p>Upload an Album Image</p></strong>
+
+            <p>You can upload images</p><br />
+            <%= f.input :image, label: "" %><br />
+
+            <div class="form-actions">
+              <%= f.button :submit, class: "btn btn-primary" %>
+            </div>
+
+      <% end %>
+  </center>
+</div>
