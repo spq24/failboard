@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131125041940) do
+ActiveRecord::Schema.define(:version => 20131125065457) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -75,6 +75,7 @@ ActiveRecord::Schema.define(:version => 20131125041940) do
     t.boolean  "item_processing"
     t.string   "youtube_url"
     t.integer  "album_id"
+    t.string   "photo"
   end
 
   add_index "fails", ["user_id"], :name => "index_pins_on_user_id"
