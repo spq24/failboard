@@ -2,8 +2,10 @@ class Album < ActiveRecord::Base
 	attr_accessible :name, :image, :image_url, :created_at
 
 	belongs_to :user
+  has_many :fails, dependent: :destroy
 
-  	mount_uploader :image, ImageUploader
+
+  mount_uploader :image, ImageUploader
  
 
 	validates            :user_id, presence: true

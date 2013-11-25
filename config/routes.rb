@@ -10,6 +10,7 @@ Failboard::Application.routes.draw do
   
   devise_for :admin_users, ActiveAdmin::Devise.config
 
+  resources :albums do
   get 'tags/:tag', to: 'fails#index', as: :tag
   resources :fails do
       member do
@@ -17,14 +18,14 @@ Failboard::Application.routes.draw do
       end
   end
 
-  resources :albums do
+ 
   end
 
   post "zencoder-callback" => "zencoder_callback#create", :as => "zencoder_callback"
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
-  root :to => 'fails#index'
+  root :to => 'albums#index'
 
   match '/about',     to: 'pages#about'
   match '/fails',     to: 'fails#index'

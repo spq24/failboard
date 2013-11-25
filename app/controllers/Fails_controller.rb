@@ -34,7 +34,7 @@ class FailsController < ApplicationController
   # GET /fails/new
   # GET /fails/new.json
   def new
-    @fail = current_user.fails.new
+    @fail = Fail.new(:album_id => params[:album_id])
 
     respond_to do |format|
       format.html # new.html.erb
@@ -44,17 +44,17 @@ class FailsController < ApplicationController
 
   # GET /fails/1/edit
   def edit
-    @fail = current_user.fails.find(params[:id])
+    @fail = current_user.albums.fails.find(params[:id])
   end
 
   # POST /fails
   # POST /fails.json
   def create
-    @fail = current_user.fails.new(params[:fail])
+    @fail = Fail.new(params[:fail])
 
     respond_to do |format|
       if @fail.save
-        format.html { redirect_to  @fail,  notice: 'You created a #Fail. Now share youre #Fail around the internets' }
+        format.html { redirect_to  @fail.album,  notice: 'You added a new photo!' }
         format.json { render json: @fail, status: :created, location: @fail }
       else
         format.html { render action: "new" }

@@ -2,7 +2,7 @@
 
 class ImageUploader < CarrierWave::Uploader::Base
  
- include Rails.application.routes.url_helpers
+  include Rails.application.routes.url_helpers
   Rails.application.routes.default_url_options = ActionMailer::Base.default_url_options
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick

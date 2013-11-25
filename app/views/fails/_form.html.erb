@@ -1,10 +1,9 @@
-
 <div class="formfail">
   <center>
     <% if params[:action] == "new" %>
-         <h1>New #Fail</h1><br />
+         <h1>New Photo</h1><br />
     <% else %>
-         <h1>Edit #Fail</h1><br />
+         <h1>Edit Photo</h1><br />
     <% end %>
     
       <%= simple_form_for(@fail) do |f| %>
@@ -14,31 +13,17 @@
             <%= f.full_error :image_content_type, class: "alert alert-error" %>
 
 
-            <strong><p>Title of the #Fail</p></strong>
+            <strong><p>Title of the Photo</p></strong>
             <%= f.input :fail_title, label: "" %><br />
-
-
-            <p><strong>Link to a #Fail</strong> (Only for images!)</p>
-
-            <%= f.input :remote_image_url, label: "" %>
-
-
-             <p><strong>Youtube #Fail</strong></p>
-            <%= f.input :youtube_url, label: "" %>
+          
             
-
-            <strong><p>OR...</p></strong><br />
-            
-            <strong><p>Upload a Fail</p></strong>
-
-            <p>You can upload images or MP4 videos</p><br />
+            <strong><p>Upload a Photo</p></strong>
             <%= f.input :image, label: "" %><br />
 
 
             <%= f.input :description, as: :text, input_html: { rows: "3"} %>
-
-            <strong><p>Fail Tags (Serarate by comma!)</p></strong>
-
+           
+            <strong><p>Photo Tags (Serarate by comma!)</p></strong>
             <%= f.input :tag_list %>
 
             <div class="form-actions">

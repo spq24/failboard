@@ -10,8 +10,6 @@ class User < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
 
-
-  has_many :fails, dependent: :destroy
   has_many :albums, dependent: :destroy
   
   def self.from_omniauth(auth)

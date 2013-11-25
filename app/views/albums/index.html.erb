@@ -1,0 +1,11 @@
+<% if !user_signed_in? %>
+<br />
+<center><%= image_tag("https://s3.amazonaws.com/failboard/failboard.png") %></center><br />
+<% end %>
+
+
+<div id="fails">
+  <%= render @albums %>
+</div>
+
+<%= paginate @albums %>

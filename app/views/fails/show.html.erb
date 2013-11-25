@@ -48,17 +48,11 @@
 			<p>
 				<center>
 
-				  <b><u><p style="font-size:22px;"><%= @fail.fail_title %></p></u></b>
+				  <b><u><p style="font-size:22px;"><%= @album.fail.fail_title %></p></u></b>
 				  <br />
 				  <br />
-				
-				  <% if @fail.youtube_url.present? %>
-				  <%= raw(youtube_embed(@fail.youtube_url)) %>
-				  <% else %>
-				  <%= image_tag @fail.image_url %>
-				  <% end %>
 
-
+				  <%= render 'fails/fail' %>
 
 				  <br />
 				  <br />
@@ -94,7 +88,6 @@
 					<br /><br />
 					<% end %>
 				  <p style="font-size: 18px;"><%= @fail.description %></p><br /><br />
-				  <p>test for github</p>
 
 
 				  	<% if @fail.id != Fail.first.id %>

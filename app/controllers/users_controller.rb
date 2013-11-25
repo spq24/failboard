@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   	def show
  		@user = User.find(params[:id])
- 		@fails = @user.fails
+ 		@albums = @user.albums
 	end
 end
